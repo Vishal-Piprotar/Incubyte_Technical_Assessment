@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Library
@@ -55,5 +57,15 @@ public class Library
 
         borrowedBooks.remove(isbn);
         bookCollection.put(isbn, book);
+    }
+    public List<Book> viewAvailableBooks() {
+
+
+        List<Book> availableBooks = new ArrayList<>(bookCollection.values());
+        for (Book book : availableBooks) {
+            System.out.println("Book Isbn : " + book.getIsbn() + ", Book Title: " + book.getTitle() +
+                    ",Book Author: " + book.getAuthor() + ",Book Publish Year: " + book.getPublicationYear());
+        }
+        return availableBooks;
     }
 }
