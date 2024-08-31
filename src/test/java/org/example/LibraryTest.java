@@ -28,7 +28,7 @@ public class LibraryTest {
         Book book = new Book("9783161484100", "Ramayana", "Valmiki", 2011);
         library.addBook(book);
 
-        // Borrowing book here
-        assertDoesNotThrow(() -> library.borrowBook(book.getIsbn()));
+        IllegalStateException exception1 = assertThrows(IllegalStateException.class, () -> library.borrowBook(book.getIsbn()));
+        assertEquals("Book is already borrowed", exception1.getMessage());
     }
 }
