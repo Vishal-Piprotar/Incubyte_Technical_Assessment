@@ -12,6 +12,11 @@ public class Library {
 
 
         public  void addBook(Book book){
+
+            if (book == null) {
+                throw new IllegalArgumentException("Book should not be null");
+            }
+
             String isbn =book.getIsbn();
              bookInventory.put(isbn, book);
         }
