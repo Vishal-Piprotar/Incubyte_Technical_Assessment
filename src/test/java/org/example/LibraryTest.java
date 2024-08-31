@@ -1,8 +1,7 @@
 package org.example;
 
-import org.junit.jupiter.api.Test; // Use JUnit 5 import
+import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,23 +27,27 @@ public class LibraryTest {
     @Test
     public void testBorrowBook() {
         Book book = new Book("9783161484100", "Ramayana", "Valmiki", 2011);
+
         library.addBook(book);
 
+        // 1. Borrowing book here
+        library.borrowBook(book.getIsbn());
+
+        // 2. Attempt to borrow the same book again
         IllegalStateException exception1 = assertThrows(IllegalStateException.class, () -> library.borrowBook(book.getIsbn()));
         assertEquals("Book is already borrowed", exception1.getMessage());
 
-
+        // 3. Attempt to borrow a non-existent book
         IllegalArgumentException exception2 = assertThrows(IllegalArgumentException.class, () -> library.borrowBook("544554545445"));
         assertEquals("Book not found", exception2.getMessage());
 
-        //4. Attempt to borrow with null or empty ISBNs
+        // 4. Attempt to borrow with null or empty ISBNs
         IllegalArgumentException exception3 = assertThrows(IllegalArgumentException.class, () -> library.borrowBook(null));
-        assertEquals("ISBN cannot be null or empty", exception1.getMessage());
+        assertEquals("ISBN cannot be null or empty", exception3.getMessage());
 
         IllegalArgumentException exception4 = assertThrows(IllegalArgumentException.class, () -> library.borrowBook(""));
-        assertEquals("ISBN cannot be null or empty", exception2.getMessage());
+        assertEquals("ISBN cannot be null or empty", exception4.getMessage());
     }
-
     @Test
     public void testReturnBook() {
 
@@ -63,10 +66,12 @@ public class LibraryTest {
         IllegalArgumentException exception3 = assertThrows(IllegalArgumentException.class, () -> library.returnBook(null));
         assertEquals("ISBN cannot be null or empty", exception3.getMessage());
 
+        // 4
         IllegalArgumentException exception4 = assertThrows(IllegalArgumentException.class, () -> library.returnBook(""));
         assertEquals("ISBN cannot be null or empty", exception4.getMessage());
 
     }
+
     @Test
     public void testViewAvailableBooks() {
 

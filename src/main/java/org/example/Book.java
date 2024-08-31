@@ -47,7 +47,5 @@ public class Book {
         return publicationYear;
     }
 
-
-
 }
 
