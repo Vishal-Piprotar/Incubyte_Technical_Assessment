@@ -6,9 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LibraryTest {
 
-    // This Test method Always pass
+    Library library = new Library();
+
+//    Test Case For Add Valid Book in  The Library
     @Test
-    public void shouldAnswerWithTrue(){
-        assertTrue(true);
+    public  void testAddBook(){
+        Book validBook = new Book("9783161484100", "Ramayana", "Valmiki", 2011);
+        library.addBook(validBook);
     }
 }
