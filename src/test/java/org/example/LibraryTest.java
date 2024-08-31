@@ -77,16 +77,9 @@ public class LibraryTest {
         library.addBook(book1);
         library.addBook(book2);
 
-        // View available books
-        List<Book> availableBooks = library.viewAvailableBooks();
-
-        // Print available books
-        for (Book book : availableBooks) {
-            System.out.println("ISBN: " + book.getIsbn() + ", Title: " + book.getTitle() +
-                    ", Author: " + book.getAuthor() + ", Year: " + book.getPublicationYear());
-        }
+        System.out.println("viewing available book after adding books in library");
+        library.viewAvailableBooks();
     }
-
 
 
 }
