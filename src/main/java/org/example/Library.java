@@ -42,4 +42,8 @@ public class Library
         bookCollection.remove(isbn);
         borrowedBooks.put(isbn, book);
     }
+
+    public void returnBook(String isbn) {
+
+    }
 }
