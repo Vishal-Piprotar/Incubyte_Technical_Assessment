@@ -32,6 +32,9 @@ public class Library
             throw new IllegalStateException("Book is already borrowed");
         }
         Book book = bookCollection.get(isbn);
+        if (book == null) {
+            throw new IllegalArgumentException("Book not found");
+        }
 
         bookCollection.remove(isbn);
         borrowedBooks.put(isbn, book);
