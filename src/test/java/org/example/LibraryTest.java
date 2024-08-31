@@ -2,6 +2,8 @@ package org.example;
 
 import org.junit.jupiter.api.Test; // Use JUnit 5 import
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LibraryTest {
@@ -65,4 +67,26 @@ public class LibraryTest {
         assertEquals("ISBN cannot be null or empty", exception4.getMessage());
 
     }
+    @Test
+    public void testViewAvailableBooks() {
+
+        // add some books to the library
+        Book book1 = new Book("9783161484100", "Ramayana", "Valmiki", 2011);
+        Book book2 = new Book("1111111111111", "GOOGLE", "GOOGLE", 1000);
+
+        library.addBook(book1);
+        library.addBook(book2);
+
+        // View available books
+        List<Book> availableBooks = library.viewAvailableBooks();
+
+        // Print available books
+        for (Book book : availableBooks) {
+            System.out.println("ISBN: " + book.getIsbn() + ", Title: " + book.getTitle() +
+                    ", Author: " + book.getAuthor() + ", Year: " + book.getPublicationYear());
+        }
+    }
+
+
+
 }
