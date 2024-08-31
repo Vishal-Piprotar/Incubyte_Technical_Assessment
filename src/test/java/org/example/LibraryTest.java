@@ -8,10 +8,20 @@ public class LibraryTest {
 
     Library library = new Library();
 
-//    Test Case For Add Valid Book in  The Library
+//    Test Case : 1 Add Book
     @Test
     public  void testAddBook(){
         Book validBook = new Book("9783161484100", "Ramayana", "Valmiki", 2011);
         library.addBook(validBook);
     }
+
+    // 2. Test case for adding a null book
+
+    @Test
+    public void testAddNullBook() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> library.addBook(null));
+        assertEquals("Book should not be null", exception.getMessage());
+    }
+
+
 }
