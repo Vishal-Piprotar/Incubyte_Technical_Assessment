@@ -77,9 +77,18 @@ public class LibraryTest {
         library.addBook(book1);
         library.addBook(book2);
 
-        System.out.println("viewing available book after adding books in library");
+
+        System.out.println("Available book after adding books in library");
+        library.viewAvailableBooks();
+
+
+        library.borrowBook(book1.getIsbn());
+        System.out.println("\nAvailable book after borrowing one book from library");
+        library.viewAvailableBooks();
+
+        library.returnBook(book1.getIsbn());
+        System.out.println("\nAvailable book after returning borrowed book to library  ");
         library.viewAvailableBooks();
     }
-
 
 }
