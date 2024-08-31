@@ -97,3 +97,6 @@ Test classes:
 - Error handling is implemented for various edge cases and invalid inputs.
 - The `viewAvailableBooks()` method in the `Library` class prints the available books to the console.
 
+
+## Test Coverage
+![img.png](img.png)
