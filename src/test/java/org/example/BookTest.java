@@ -14,7 +14,7 @@ public class BookTest {
     public void testIsbnNotNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> new Book(null, "Ramayana", "Valmiki", 2011));
-        assertEquals("Isbn should not be  null", exception.getMessage());
+        assertEquals("ISBN should not be null or empty", exception.getMessage());
     }
 
     // Test case : 2 ISBN not empty
