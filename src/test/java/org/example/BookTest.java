@@ -1,9 +1,22 @@
 package org.example;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BookTest {
+
+    private Book validBook;
+
+    @BeforeEach
+    void setUp() {
+        validBook = new Book("9788129119183", "Ramayana", "Valmiki", 2011);
+    }
+
+    @Test
+    public void testValidBookCreation() {
+        assertDoesNotThrow(() -> new Book("9788129119183", "Ramayana", "Valmiki", 2011));
+    }
 
     // Test Case 1: ISBN is not null
     @Test
@@ -69,5 +82,33 @@ public class BookTest {
         assertEquals("Publication year should be a positive integer", exception.getMessage());
     }
 
+    // Test case 9: Get ISBN
+    @Test
+    public void testGetIsbn() {
+        assertEquals("9788129119183", validBook.getIsbn());
+    }
 
+    // Test case 10: Get Title
+    @Test
+    public void testGetTitle() {
+        assertEquals("Ramayana", validBook.getTitle());
+    }
+
+    // Test case 11: Get Author
+    @Test
+    public void testGetAuthor() {
+        assertEquals("Valmiki", validBook.getAuthor());
+    }
+
+    // Test case 12: Get Publication Year
+    @Test
+    public void testGetPublicationYear() {
+        assertEquals(2011, validBook.getPublicationYear());
+    }
+
+    // Test case 13: Valid ISBN Format
+    @Test
+    public void testIsbnFormat() {
+        assertDoesNotThrow(() -> new Book("9783161484100", "Test Book", "Test Author", 2020));
+    }
 }

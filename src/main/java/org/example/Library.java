@@ -58,7 +58,7 @@ public class Library
         borrowedBooks.remove(isbn);
         bookCollection.put(isbn, book);
     }
-    public List<Book> viewAvailableBooks() {
+    public void viewAvailableBooks() {
 
 
         List<Book> availableBooks = new ArrayList<>(bookCollection.values());
@@ -66,6 +66,5 @@ public class Library
             System.out.println("Book Isbn : " + book.getIsbn() + ", Book Title: " + book.getTitle() +
                     ",Book Author: " + book.getAuthor() + ",Book Publish Year: " + book.getPublicationYear());
         }
-        return availableBooks;
     }
 }

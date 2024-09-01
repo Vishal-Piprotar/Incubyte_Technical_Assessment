@@ -44,7 +44,7 @@ public class LibraryTest {
         // 4. Attempt to borrow with null or empty ISBNs
         IllegalArgumentException exception3 = assertThrows(IllegalArgumentException.class, () -> library.borrowBook(null));
         assertEquals("ISBN cannot be null or empty", exception3.getMessage());
-
+        // 5 Empty
         IllegalArgumentException exception4 = assertThrows(IllegalArgumentException.class, () -> library.borrowBook(""));
         assertEquals("ISBN cannot be null or empty", exception4.getMessage());
     }
@@ -66,7 +66,7 @@ public class LibraryTest {
         IllegalArgumentException exception3 = assertThrows(IllegalArgumentException.class, () -> library.returnBook(null));
         assertEquals("ISBN cannot be null or empty", exception3.getMessage());
 
-        // 4
+        // 4 Empty
         IllegalArgumentException exception4 = assertThrows(IllegalArgumentException.class, () -> library.returnBook(""));
         assertEquals("ISBN cannot be null or empty", exception4.getMessage());
 
@@ -79,18 +79,19 @@ public class LibraryTest {
         Book book1 = new Book("9783161484100", "Ramayana", "Valmiki", 2011);
         Book book2 = new Book("1111111111111", "GOOGLE", "GOOGLE", 1000);
 
+        // Add the books
         library.addBook(book1);
         library.addBook(book2);
 
-
+        // Display the available books
         System.out.println("Available book after adding books in library");
         library.viewAvailableBooks();
 
-
+        // Borrow one of the books from the library
         library.borrowBook(book1.getIsbn());
         System.out.println("\nAvailable book after borrowing one book from library");
         library.viewAvailableBooks();
-
+        // Return the borrowed book to the library
         library.returnBook(book1.getIsbn());
         System.out.println("\nAvailable book after returning borrowed book to library  ");
         library.viewAvailableBooks();
