@@ -4,6 +4,21 @@
 
 This project is a simple Library Management System that allows users to perform basic operations such as adding books, borrowing books, returning books, and viewing available books. The project is implemented using Java, with a focus on clean code, TDD (Test-Driven Development), and proper usage of Git for version control.
 
+## Table of Contents
+1. [Objective](#objective)
+2. [Technologies Used](#technologies-used)
+3. [Requirements](#requirements)
+4. [Installation Process](#installation-process)
+5. [Development Guidelines](#development-guidelines)
+6. [Running Tests](#running-tests)
+7. [Features](#features)
+8. [Project Structure](#project-structure)
+9. [Key Test Cases](#key-test-cases)
+   - [LibraryTest](#librarytest)
+   - [BookTest](#booktest)
+10. [Notes](#notes)
+11. [Test Coverage](#test-coverage)
+
 ## Technologies Used
 
 - **Programming Language:** Java
@@ -16,6 +31,60 @@ This project is a simple Library Management System that allows users to perform 
 - **Java JDK:** Make sure you have Java Development Kit (JDK) installed on your system.
 - **JUnit 5:** Ensure JUnit 5 is set up for running the tests.
 - **IDE:** You can use any IDE like IntelliJ IDEA, Eclipse, or VS Code for development.
+
+## Installation Process
+
+Follow these steps to set up the Library Management System on your local machine:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Vishal-Piprotar/library-management-system.git
+   cd library-management-system
+
+   ```
+2. Install Java JDK: Make sure you have Java Development Kit (JDK) installed. Download it from the Oracle website or use your system's package manager
+
+```bash
+java -version
+
+```
+
+3. Install Maven: Download and install Maven from the official website or use your system's package manager.
+```bash
+mvn -version
+
+```
+4. Set Up JUnit 5: Ensure JUnit 5 is included in the pom.xml file under the <dependencies> section:
+
+```bash 
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.9.2</version>
+    <scope>test</scope>
+</dependency>
+
+```
+
+5. Import Project into Your IDE:
+
+```
+  ### IntelliJ IDEA
+
+  1. Open IntelliJ IDEA and navigate to `File` > `New` > `Project from Existing Sources...`
+  2. Select the `library-management-system` folder from your local machine.
+  3. Choose "Import project from external model" and select `Maven`.
+  4. Click `Next` and follow the prompts to complete the import process.
+```
+6. Build the Project:
+```bash
+mvn clean install
+```
+
+7. Run Tests:
+```bash
+mvn test
+```
 
 ## Development Guidelines
 
